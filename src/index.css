@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0mm;
+    }
+
+    body {
+        font-family: Arial, Calibri, Helvetica, sans-serif;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ensure backgrounds are printed */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
