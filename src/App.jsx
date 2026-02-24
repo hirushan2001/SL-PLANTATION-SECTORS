@@ -122,27 +122,27 @@ const COLORS = {
 
 const A4Page = ({ children, className = "", pageNumber, footerText }) => (
   <div
-    className={`w-[210mm] h-[296mm] bg-white shadow-2xl mx-auto mb-10 overflow-hidden relative flex flex-col p-8 print:shadow-none print:m-0 print:mb-0 print:break-after-page ${className}`}
+    className={`w-[210mm] h-[296mm] bg-white shadow-2xl mx-auto mb-10 overflow-hidden relative flex flex-col px-8 py-6 print:shadow-none print:m-0 print:mb-0 print:break-after-page ${className}`}
     style={{ pageBreakAfter: 'always' }}
   >
-    <div className="flex-grow flex flex-col">
+    <div className="flex-grow flex flex-col overflow-hidden">
       {children}
     </div>
-    <div className="mt-auto pt-4 border-t border-gray-200 flex justify-between items-end text-[10px] text-gray-400 font-sans font-bold uppercase tracking-wider">
+    <div className="mt-2 pt-2 border-t border-gray-200 flex justify-between items-end text-[10px] text-gray-400 font-sans font-bold uppercase tracking-wider">
       <div className="flex-1">
         {footerText && (
-          <div className="flex flex-col gap-0.5">
-            <span className="text-[8px] text-gray-400 mb-0.5">Sources:</span>
+          <div className="flex flex-col gap-0">
+            <span className="text-[7px] text-gray-400 mb-0.5">Sources:</span>
             {footerText.split(/,|\n/).map((item, idx) => item.trim() && (
-              <span key={idx} className="text-[9px] text-black block leading-tight normal-case">
+              <span key={idx} className="text-[8px] text-black block leading-tight normal-case font-medium">
                 {item.trim()}
               </span>
             ))}
           </div>
         )}
       </div>
-      <div className="flex-1 text-right pb-1">
-        {pageNumber && <span>Page {pageNumber}</span>}
+      <div className="flex-1 text-right pb-0.5">
+        {pageNumber && <span className="text-gray-500">Page {pageNumber}</span>}
       </div>
     </div>
   </div>
@@ -659,7 +659,7 @@ const App = () => {
 
         </div>
         {/* Bottom Images Row */}
-        <div className="grid grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-4 gap-4 mt-0">
           <div className="h-36 rounded-xl overflow-hidden shadow-lg border-2 border-green-700/10 hover:border-green-700/30 transition-all duration-300">
             <img src="/3-coconut.jpeg" alt="Coconut Nursery" className="w-full h-full object-cover" />
           </div>
@@ -903,9 +903,9 @@ const App = () => {
         <Header title="Cashew Sector" subTitle="Premium Export Crop" icon={Sun} imageSrc="Cashew header.png" color={COLORS.cashew.primary} />
 
         <div className="grid grid-cols-3 gap-6 h-full">
-          <div className="col-span-2 flex flex-col gap-6">
-            <div className="bg-blue-50 p-6 rounded-xl border border-gray-100">
-              <div className="flex justify-between items-center mb-4">
+          <div className="col-span-2 flex flex-col gap-4">
+            <div className="bg-blue-50 p-4 rounded-xl border border-gray-100">
+              <div className="flex justify-between items-center mb-2">
                 <SectionLabel text="Cashew Production & Area" color={COLORS.tea.bar} />
                 <div className="flex gap-4">
                   <div className="flex items-center gap-1">
@@ -946,13 +946,13 @@ const App = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-3 gap-4 mt-4">
               <SectionBox title="Cashew Processing Steps" color={COLORS.cashew.primary} className="col-span-2 h-full">
                 <div className="rounded-lg overflow-hidden bg-white h-full flex items-center justify-center">
                   <img src="cashew prosess.png" alt="Cashew Processing Steps" className="w-full h-auto object-contain" />
                 </div>
               </SectionBox>
-              <div className="col-span-1 flex flex-col gap-2.5">
+              <div className="col-span-1 flex flex-col gap-2">
                 <StatCard label="Farmers" value="30K+" sub="Small Holders" icon={Users} color={COLORS.cashew.primary} />
                 <StatCard label="Districts" value="15" sub="Dry Zone" icon={MapPin} color={COLORS.cashew.primary} />
                 <StatCard label="Price" value="High" sub="Local Market" icon={DollarSign} color={COLORS.cashew.primary} />
